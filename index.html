@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body class="container">
+<ul class="nav nav-tabs">
+    <li role="presentation" onclick="change._go('first')"><a >Home</a></li>
+    <li role="presentation"  onclick="change._go('second')"><a >Profile</a></li>
+    <li role="presentation" onclick="change._go('third')"><a>Messages</a></li>
+</ul>
+<div id="img"></div>
+<style>
+    div{
+        height: 235px;
+        width: 250px;
+        margin-top: 10px;
+        margin-left:25% ;
+        /*border: 1px solid green;*/
+        background-size: cover;
+    }
+    .first{
+        background: url("./imgs/1.jpg")no-repeat ;}
+    .second{
+        background: url("./imgs/2.jpg")no-repeat ;
+    }
+    .third{
+        background: url("./imgs/3.jpg")no-repeat ;
+    }
+</style>
+
+<script>
+   class Change{
+       constructor(){
+           let div = document.getElementById('img');
+           div.className = window.localStorage.img || 'first';
+           window.location.hash = window.localStorage.imgHash || 'first_img';
+       }
+       _go(namber){
+           let div = document.getElementById('img');
+           div.className=namber;
+          window.location.hash = namber +'_img';
+           window.localStorage.imgHash =  window.location.hash;
+           window.localStorage.img =  namber;
+       }
+   }
+
+let change = new Change;
+
+
+
+
+</script>
+</body>
+</html>
